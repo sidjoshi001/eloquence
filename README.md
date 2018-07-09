@@ -19,6 +19,9 @@ Currently available extensions:
 
 **Check the [documentation](https://github.com/jarektkaczyk/eloquence/wiki) for installation and usage info, [website](http://softonsofa.com/tag/eloquence/) for examples and [API reference](http://jarektkaczyk.github.io/eloquence-api)**
 
+Modification:
+ - By Tymk Softwares for Compitability with `gazsp/baum`
+
 ## Contribution
 
 All contributions are welcome, PRs must be **tested** and **PSR-2 compliant**.

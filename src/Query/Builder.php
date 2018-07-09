@@ -87,4 +87,22 @@ class Builder extends \Illuminate\Database\Query\Builder
 
         $this->backups = $this->bindingBackups = [];
     }
+
+    /**
+     * Replace the "order by" clause of the current query.
+     *
+     * @param  string  $column
+     * @param  string  $direction
+     * @return \Illuminate\Database\Query\Builder|static
+     */
+    public function reOrderBy($column, $direction = 'asc')
+    {
+        $this->orders = null;
+
+        if (! is_null($column)) {
+            return $this->orderBy($column, $direction);
+        }
+
+        return $this;
+    }
 }
