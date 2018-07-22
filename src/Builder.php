@@ -88,6 +88,32 @@ class Builder extends HookableBuilder
     }
 
     /**
+     * Filter the Query by Date Range on "Current Table" only 
+     * abd return results (Developed By Tymk Softwares)
+     *
+     * @param  string $date_range (Format: `START_DATE - END_DATE`, where joiner '-' is very Important)
+     * @param  string $column
+     * @return $this
+     */
+    public function filterDate($date_range, $column = 'created_at')
+    {
+        if ($date_range) {
+
+            $dates = explode('-', $date_range);
+            $start_date = Carbon::parse(trim($dates[0]));
+            $end_date = Carbon::parse(trim($dates[1]))->endOfDay();
+
+            $this->query->where([
+                [$column, '>=', $start_date],
+                [$column, '<=', $end_date]
+            ]);
+
+        }
+
+        return $this;
+    }
+
+    /**
      * Build the search subquery.
      *
      * @param  array $words
