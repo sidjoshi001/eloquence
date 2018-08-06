@@ -2,6 +2,7 @@
 
 namespace Sofa\Eloquence;
 
+use Carbon\Carbon;
 use Sofa\Eloquence\Searchable\Column;
 use Illuminate\Database\Query\Expression;
 use Sofa\Hookable\Builder as HookableBuilder;
