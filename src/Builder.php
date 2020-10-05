@@ -105,8 +105,8 @@ class Builder extends HookableBuilder
             $end_date = Carbon::parse(trim($dates[1]))->endOfDay();
 
             $this->query->where([
-                [$column, '>=', $start_date],
-                [$column, '<=', $end_date]
+                [$this->query->from . '.' . $column, '>=', $start_date],
+                [$this->query->from . '.' . $column, '<=', $end_date]
             ]);
 
         }
