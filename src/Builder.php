@@ -100,11 +100,11 @@ class Builder extends HookableBuilder
     {
         if ($date_range) {
             $dates = explode('-', $date_range);
-            $start_date = Carbon::parse(trim($dates[0]));
+            $start_date = Carbon::parse(trim($dates[0]))->startOfDay();
             $end_date = Carbon::parse(trim($dates[1]))->endOfDay();
             $this->query->where([
-                [$column, '>=', $start_date],
-                [$column, '<=', $end_date]
+                [$this->query->from . '.' . $column, '>=', $start_date],
+                [$this->query->from . '.' . $column, '<=', $end_date]
             ]);
         }
         return $this;
